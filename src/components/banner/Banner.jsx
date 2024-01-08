@@ -18,7 +18,7 @@ const Banner = () => {
   console.log("currentslide", currentSlide);
   return (
     <div className="  w-screen h-auto overflow-x-hidden">
-      <div className="w-screen h-[500px] relative">
+      <div className="w-screen h-[400px] relative">
         <div
           className={`flex w-[400vw] h-full transition-transform duration-1000  `}
           style={{
@@ -30,7 +30,7 @@ const Banner = () => {
           <img src={banner3} alt="" className="w-screen h-full object-fill  " />
           <img src={banner4} alt="" className="w-screen h-full object-fill " />
         </div>
-        <div className="flex justify-between  absolute bottom-72 w-screen px-4  ">
+        <div className="flex justify-between  absolute bottom-52 w-screen px-4  ">
           <div
             className="border-2 border-orange-500 px-4 py-3 rounded-md cursor-pointer hover:bg-orange-500"
             onClick={handlePrev}
