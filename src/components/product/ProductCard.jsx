@@ -1,23 +1,37 @@
 import React from "react";
 import { IconArrowRight } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 const ProductCard = ({ product }) => {
-  console.log("product", product);
+  const navigate = useNavigate();
+
+  const id = product.title;
+  const rootId = String(id).toLowerCase().split(" ").join("");
+  const handleClick = () => {
+    navigate(`/product/${rootId}`, {
+      state: {
+        item: product,
+      },
+    });
+  };
   return (
-    <div className="group">
-      <div className="w-full h-96 overflow-hidden cursor-pointer">
+    <div className="group relative">
+      <div
+        className="w-full h-96 overflow-hidden cursor-pointer"
+        onClick={handleClick}
+      >
         <img
           src={product.image}
           alt="product image"
           className="h-full w-full object-cover group-hover:scale-110 duration-500 ease-in-out "
         />
       </div>
-      <div className="flex justify-between py-2">
+      <div className="flex items-center justify-between ic py-2">
         <div>
           <h2 className="text-lg font-medium">
             {product.title.substring(0, 15)}
           </h2>
         </div>
-        <div className="flex items-center justify-between  gap-2 text-lg w-32 overflow-hidden relative ">
+        <div className="flex items-center justify-between  gap-2 text-lg w-32 overflow-hidden  relative ">
           <div className="flex gap-4 group-hover:translate-x-32  transition-transform duration-700 ">
             <p className="line-through text-lg text-gray-400">
               ₹{product.oldPrice}
@@ -34,6 +48,16 @@ const ProductCard = ({ product }) => {
             </span>
           </p>
         </div>
+      </div>
+      <div>
+        <p className="text-lg font-medium">{product.category}</p>
+      </div>
+      <div className="">
+        {product.isNew && (
+          <p className=" bg-black  text-white text-center w-20 py-2 rounded-md absolute top-3 right-2 cursor-pointer ">
+            Sales
+          </p>
+        )}
       </div>
     </div>
   );

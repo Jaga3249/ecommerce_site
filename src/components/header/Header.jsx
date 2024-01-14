@@ -2,6 +2,7 @@ import React from "react";
 import headerImg from "../../assets/header-logo.png";
 import { IconShoppingCart } from "@tabler/icons-react";
 import avatarImg from "../../assets/avatar-img.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,9 +11,9 @@ const Header = () => {
      bg-white  w-screen  h-16 sticky top-0 z-20 "
     >
       <div className="max-w-5xl mx-auto  h-full   flex items-center justify-between ">
-        <div className="cursor-pointer">
+        <Link to="/" className="cursor-pointer">
           <img src={headerImg} alt="" className="w-32" />
-        </div>
+        </Link>
         <div className="flex gap-6 items-center    ">
           <ul className="flex gap-8 items-center  ">
             <li className="text-lg font-medium cursor-pointer hover:text-orange-500 hover:underline underline-offset-8">
