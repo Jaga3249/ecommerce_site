@@ -26,7 +26,7 @@ const SingleProduct = () => {
         <div className="w-[400px]  relative  ">
           {/* <img src={itemDetails.image} alt="" className="w-full h-full" /> */}
           <ReactImageMagnify
-            className="hover:z-50"
+            // className="hover:z-50"
             {...{
               smallImage: {
                 alt: "Wristwatch by Ted Baker London",

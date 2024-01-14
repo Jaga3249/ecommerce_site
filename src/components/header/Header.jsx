@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import headerImg from "../../assets/header-logo.png";
 import { IconShoppingCart } from "@tabler/icons-react";
 import avatarImg from "../../assets/avatar-img.png";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const [item, setItem] = useState([]);
+  const productData = useSelector((state) => state.product.productData);
+  console.log("productData", productData);
+
   return (
     <div
       className="border-b-[1px] border-gray-400 
@@ -40,7 +45,7 @@ const Header = () => {
             className="border-[1px] w-6 text-sm text-white   flex justify-center items-center rounded-full 
            absolute -top-[1px] right-40 bg-red-500"
           >
-            {0}
+            {productData.length}
           </span>
         </div>
       </div>

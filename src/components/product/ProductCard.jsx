@@ -1,8 +1,11 @@
 import React from "react";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/ProductSlice";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const id = product.title;
   const rootId = String(id).toLowerCase().split(" ").join("");
@@ -42,7 +45,24 @@ const ProductCard = ({ product }) => {
             className="w-[150px]  absolute top-0 z-20 transform -translate-x-32 group-hover:translate-x-0 
           transition-transform duration-700 flex items-center text-lg   "
           >
-            <span> add To cart</span>
+            <span
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id: product._id,
+                    title: product.title,
+                    desciption: product.description,
+                    quantity: 1,
+                    image: product.image,
+                    price: product.price,
+                  })
+                )
+              }
+              className="cursor-pointer"
+            >
+              {" "}
+              add To cart
+            </span>
             <span>
               <IconArrowRight />
             </span>
