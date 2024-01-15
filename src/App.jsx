@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import "./App.css";
 import Home from "./components/pages/Home";
 import Header from "./components/header/Header";
@@ -13,6 +11,8 @@ import {
 import Cart from "./components/pages/Cart";
 import { productData } from "./api/Api";
 import SingleProduct from "./components/product/SingleProduct";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Layout = () => (
   <div>
@@ -52,6 +52,19 @@ function App() {
       <div className="font-bodyfont">
         <RouterProvider router={router} />
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
     </>
   );
 }

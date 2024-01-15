@@ -2,12 +2,16 @@ import { Rating } from "@mantine/core";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import ReactImageMagnify from "react-image-magnify";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { addToCart } from "../../redux/ProductSlice";
+import { toast } from "react-toastify";
 
 const SingleProduct = () => {
   const [itemDetails, setItemDetails] = useState({});
   const [count, setCount] = useState(1);
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const handleDecrease = () => {
     setCount((prev) => (prev > 1 ? prev - 1 : prev));
@@ -23,23 +27,13 @@ const SingleProduct = () => {
     <div className="w-screen ">
       <div className="mx-auto max-w-screen-xl  my-10 flex gap-6">
         {/* left section */}
-        <div className="w-[400px]  relative  ">
-          {/* <img src={itemDetails.image} alt="" className="w-full h-full" /> */}
-          <ReactImageMagnify
-            // className="hover:z-50"
-            {...{
-              smallImage: {
-                alt: "Wristwatch by Ted Baker London",
-                isFluidWidth: true,
-                src: itemDetails.image, // Use the appropriate image source
-              },
-              largeImage: {
-                src: itemDetails.image, // Provide the large image source
-                width: 1200,
-                height: 1800,
-              },
-            }}
+        <div className="w-[400px]  h-[350px] relative  ">
+          <img
+            src={itemDetails.image}
+            alt=""
+            className="w-full h-full object-cover"
           />
+
           {itemDetails.isNew && (
             <button className="bg-black text-white w-24 py-2 absolute top-2 right-2 ">
               Sales
@@ -91,7 +85,23 @@ const SingleProduct = () => {
                 </button>
               </div>
             </div>
-            <button className="bg-black text-white px-2 py-3">
+            <button
+              className="bg-black text-white px-2 py-3"
+              onClick={() =>
+                dispatch(
+                  addToCart(
+                    addToCart({
+                      id: itemDetails._id,
+                      title: itemDetails.title,
+                      desciption: itemDetails.description,
+                      quantity: count,
+                      image: itemDetails.image,
+                      price: itemDetails.price,
+                    })
+                  )
+                ) && toast.success(`${itemDetails.title} is added`)
+              }
+            >
               add to cart
             </button>
           </div>

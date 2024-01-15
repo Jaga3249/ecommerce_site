@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  "no-unused-vars": "off",
   env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',

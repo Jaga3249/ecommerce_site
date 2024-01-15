@@ -3,6 +3,7 @@ import { IconArrowRight } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/ProductSlice";
+import { toast } from "react-toastify";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,7 +32,10 @@ const ProductCard = ({ product }) => {
       <div className="flex items-center justify-between ic py-2">
         <div>
           <h2 className="text-lg font-medium">
-            {product.title.substring(0, 15)}
+            {/* {product.title.substring(0, 15)} */}
+            {product.title.length > 15
+              ? `${product.title.substring(0, 15)}...`
+              : product.title}
           </h2>
         </div>
         <div className="flex items-center justify-between  gap-2 text-lg w-32 overflow-hidden  relative ">
@@ -56,7 +60,7 @@ const ProductCard = ({ product }) => {
                     image: product.image,
                     price: product.price,
                   })
-                )
+                ) && toast.success(`${product.title} is added`)
               }
               className="cursor-pointer"
             >
