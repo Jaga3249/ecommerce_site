@@ -2,7 +2,7 @@ import { Rating } from "@mantine/core";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import ReactImageMagnify from "react-image-magnify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addToCart } from "../../redux/ProductSlice";
 import { toast } from "react-toastify";
@@ -22,7 +22,8 @@ const SingleProduct = () => {
   useEffect(() => {
     setItemDetails(location.state.item);
   }, []);
-  console.log("count", count);
+  // console.log("count", count);
+
   return (
     <div className="w-screen ">
       <div className="mx-auto max-w-screen-xl  my-10 flex gap-6">
@@ -89,16 +90,14 @@ const SingleProduct = () => {
               className="bg-black text-white px-2 py-3"
               onClick={() =>
                 dispatch(
-                  addToCart(
-                    addToCart({
-                      id: itemDetails._id,
-                      title: itemDetails.title,
-                      desciption: itemDetails.description,
-                      quantity: count,
-                      image: itemDetails.image,
-                      price: itemDetails.price,
-                    })
-                  )
+                  addToCart({
+                    id: itemDetails._id,
+                    title: itemDetails.title,
+                    desciption: itemDetails.description,
+                    quantity: count,
+                    image: itemDetails.image,
+                    price: itemDetails.price,
+                  })
                 ) && toast.success(`${itemDetails.title} is added`)
               }
             >

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import headerImg from "../../assets/header-logo.png";
 import { IconShoppingCart } from "@tabler/icons-react";
-import avatarImg from "../../assets/avatar-img.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import avatarImg from "../../assets/avatar-img.png";
+import headerImg from "../../assets/header-logo.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -38,12 +39,15 @@ const Header = () => {
               Blog
             </li>
           </ul>
-          <div className="flex  items-center gap-4 cursor-pointer relative">
+          <div className="flex  items-center gap-6 cursor-pointer relative">
             <IconShoppingCart
-              className="text-red-800 w-10 h-16  "
+              className="text-red-800 w-8 h-16  "
               onClick={() => navigate("/cart")}
             />
-            <img src={avatarImg} alt="" className="w-9 h-9" />
+            <Link to="/login">
+            <motion.img  whileTap={{scale:0.6}} src={avatarImg} alt="" className="w-9 h-9"  />
+            </Link>
+           
             <span
               className="border-[1px] w-6 text-sm text-white   flex justify-center items-center rounded-full 
            absolute left-6 bottom-10 bg-red-500"

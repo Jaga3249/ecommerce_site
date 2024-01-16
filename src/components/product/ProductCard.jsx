@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
       <div className="flex items-center justify-between ic py-2">
         <div>
           <h2 className="text-lg font-medium">
-            {/* {product.title.substring(0, 15)} */}
+            
             {product.title.length > 15
               ? `${product.title.substring(0, 15)}...`
               : product.title}
@@ -64,7 +64,7 @@ const ProductCard = ({ product }) => {
               }
               className="cursor-pointer"
             >
-              {" "}
+              
               add To cart
             </span>
             <span>

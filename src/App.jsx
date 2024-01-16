@@ -13,6 +13,7 @@ import { productData } from "./api/Api";
 import SingleProduct from "./components/product/SingleProduct";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Login from "./components/pages/Login";
 
 const Layout = () => (
   <div>
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <SingleProduct />,
       },
+      {
+        path:"/login",
+        element:<Login/>
+      }
     ],
   },
 ]);

@@ -15,10 +15,11 @@ const Banner = () => {
   const handlePrev = () => {
     setCurrentSlide(currentSlide === 0 ? 3 : (prev) => prev - 1);
   };
-  console.log("currentslide", currentSlide);
+  // console.log("currentslide", currentSlide);
   return (
-    <div className="  w-screen h-auto overflow-x-hidden">
-      <div className="w-screen h-[400px] relative">
+    <div className="   overflow-x-hidden">
+      <div className="   h-[400px] relative">
+        {/* image section */}
         <div
           className={`flex w-[400vw] h-full transition-transform duration-1000  `}
           style={{
@@ -30,19 +31,21 @@ const Banner = () => {
           <img src={banner3} alt="" className="w-screen h-full object-fill  " />
           <img src={banner4} alt="" className="w-screen h-full object-fill " />
         </div>
-        <div className="flex justify-between  absolute bottom-52 w-screen px-4  ">
-          <div
+        {/* arrow section */}
+        <div className="flex justify-between  w-screen  absolute bottom-52  px-4    " >
+       
+          <span
             className="border-2 border-orange-500 px-4 py-3 rounded-md cursor-pointer hover:bg-orange-500"
             onClick={handlePrev}
           >
             <IconArrowLeft />
-          </div>
-          <div
+          </span>
+          <span
             className="border-2 border-orange-500  px-4 py-3 rounded-md cursor-pointer hover:bg-orange-600"
             onClick={handleNext}
           >
             <IconArrowRight />
-          </div>
+          </span>
         </div>
       </div>
     </div>
