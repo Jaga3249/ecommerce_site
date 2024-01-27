@@ -1,15 +1,14 @@
+import { IconArrowLeft, IconX } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IconX } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   decreaseQuantity,
   increaseQuantity,
   removeCart,
   resetCart,
 } from "../../redux/ProductSlice";
-import { toast } from "react-toastify";
-import { IconArrowLeft } from "@tabler/icons-react";
-import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -17,14 +16,14 @@ const Cart = () => {
   const [totalAmount, setTotalAmount] = useState("");
   const productData = useSelector((state) => state.product.productData);
   const [counts, setCounts] = useState(
-    Array.from({ length: productData.length }, () => 1)
+    Array.from({ length: productData?.length }, () => 1)
   );
 
   // console.log("productData", productData)
 
   useEffect(() => {
     let price = 0;
-    productData.map((item) => (price += item.quantity * item.price));
+    productData?.map((item) => (price += item.quantity * item.price));
     setTotalAmount(price.toFixed(2));
   }, [productData]);
 
@@ -36,8 +35,8 @@ const Cart = () => {
         <div className="w-2/3">
           <h2 className="text-xl pl-4 font-medium">Shopping Cart</h2>
           <div>
-            {productData.map((item, i) => (
-              <div key={i} className="flex items-center justify-between mt-6">
+            {productData?.map((item, i) => (
+              <div key={i} className="flex items-center  gap-8 mt-6">
                 <div className="flex items-center">
                   <IconX
                     onClick={() =>
@@ -47,9 +46,9 @@ const Cart = () => {
                   />
                   <img src={item.image} alt="" className="w-32 h-32" />
                 </div>
-                <h2 className="w-40">{item.title}</h2>
-                <p className="w-10">₹{item.price}</p>
-                <div className="flex items-center gap-2 border-[1px] border-gray-100 px-4 py-2 shadow-md">
+                <h2 className="w-40 py-2 px-2" >{item.title}</h2>
+                <p className="w-16 px-2 py-2" >₹{item.price}</p>
+                <div className="flex items-center gap-2 border-[1px] border-gray-100  w-52 py-2 px-2  shadow-md" >
                   <p>Quantity</p>
                   <button
                     className="border-[1px] border-gray-100 px-2 hover:bg-gray-300 rounded-md text-lg"
@@ -57,7 +56,7 @@ const Cart = () => {
                   >
                     -
                   </button>
-                  <span className="border-[1px] border-gray-100 px-2 hover:bg-gray-300 rounded-md text-lg">
+                  <span className="border-[1px] border-gray-100 px-3  flex justify-center items-center hover:bg-gray-300 rounded-md text-lg">
                     {item.quantity}
                   </span>
                   <button
@@ -68,7 +67,7 @@ const Cart = () => {
                     +
                   </button>
                 </div>
-                <p>₹{item.price * item.quantity}</p>
+                <p className="w-16 px-2 py-2" >₹{item.price * item.quantity}</p>
               </div>
             ))}
 
@@ -92,7 +91,7 @@ const Cart = () => {
           </div>
         </div>
         {/* right side */}
-        <div className="w-1/3 py-6  bg-gray-100 shadow-md rounded-lg">
+        <div className="w-1/3 h-1/2 my-16 py-6  bg-gray-100 shadow-md rounded-lg">
           <div className="px-4">
             <h2 className="text-xl text-center font-semibold mb-2">
               Cart Totals

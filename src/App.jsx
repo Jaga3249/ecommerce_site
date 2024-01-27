@@ -1,24 +1,22 @@
-import "./App.css";
-import Home from "./components/pages/Home";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
 import {
   Outlet,
   RouterProvider,
-  ScrollRestoration,
-  createBrowserRouter,
+  createBrowserRouter
 } from "react-router-dom";
-import Cart from "./components/pages/Cart";
-import { productData } from "./api/Api";
-import SingleProduct from "./components/product/SingleProduct";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Login from "./components/pages/Login";
+import "./App.css";
+import { productData } from "./api/Api";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import Cart from "./components/pages/Cart";
+import Home from "./components/pages/Home";
+import SingleProduct from "./components/product/SingleProduct";
 
 const Layout = () => (
   <div>
     <Header />
-    <ScrollRestoration />
+    {/* <ScrollRestoration /> */}
     <Outlet />
     <Footer />
   </div>
@@ -43,10 +41,10 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <SingleProduct />,
       },
-      {
-        path:"/login",
-        element:<Login/>
-      }
+      // {
+      //   path:"/login",
+      //   element:<Login/>
+      // }
     ],
   },
 ]);

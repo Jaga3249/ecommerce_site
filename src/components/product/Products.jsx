@@ -1,10 +1,33 @@
-import React from "react";
+import { TextInput } from "@mantine/core";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
 const Products = ({ products }) => {
+  const [productData, setProductData] = useState(products);
+
+  const serchProduct = (query) => {
+    if (query === "") {
+      setProductData(products);
+      return;
+    } else {
+      const filterData = productData.filter((item) => {
+        const data = item.title.toLowerCase().includes(query.toLowerCase());
+
+        return data;
+      });
+
+      setProductData(filterData);
+    }
+  };
+
+  useEffect(() => {
+    // Update productData when products prop changes
+    setProductData(products);
+  }, [products]);
+
   return (
     <div className="py-10 ">
-      <div className=" flex flex-col items-center  gap-3  w-screen   ">
+      <div className=" flex flex-col items-center  gap-3     ">
         <h1
           className=" bg-black text-gray-300 w-72 py-3
          cursor-pointer text-lg text-center rounded-md 
@@ -20,8 +43,15 @@ const Products = ({ products }) => {
           numquam placeat similique.
         </p>
       </div>
+      <div className=" ml-8 w-[23%] ">
+        <TextInput
+          placeholder="Enter"
+          onChange={(e) => serchProduct(e.target.value)}
+          label="Search"
+        />
+      </div>
       <div className="max-w-screen-xl mx-auto py-10 grid grid-cols-4 gap-5">
-        {products.map((item, i) => (
+        {productData.map((item, i) => (
           <ProductCard key={i} product={item} />
         ))}
       </div>

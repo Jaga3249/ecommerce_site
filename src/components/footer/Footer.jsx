@@ -1,23 +1,15 @@
+import { Button, TextInput, rem } from "@mantine/core";
+import { IconAt, IconBrandFacebookFilled, IconBrandGithub, IconBrandLinkedin, IconBrandPaypal, IconBrandYoutube, IconHome, IconMapPin, IconUserSquareRounded } from "@tabler/icons-react";
 import React from "react";
-import headerImg from "../../assets/header-logo.png";
 import citi from "../../assets/citi.png";
-import visa from "../../assets/visa.png";
+import headerImg from "../../assets/header-logo.png";
 import mastercard from "../../assets/mastercard.png";
 import paypal from "../../assets/paypal.png";
-import { IconBrandGithub } from "@tabler/icons-react";
-import { IconBrandLinkedin } from "@tabler/icons-react";
-import { IconBrandFacebookFilled } from "@tabler/icons-react";
-import { IconBrandYoutube } from "@tabler/icons-react";
-import { IconUserSquareRounded } from "@tabler/icons-react";
-import { IconBrandPaypal } from "@tabler/icons-react";
-import { IconHome } from "@tabler/icons-react";
-import { IconMapPin } from "@tabler/icons-react";
-import { Button, TextInput, rem } from "@mantine/core";
-import { IconAt } from "@tabler/icons-react";
+import visa from "../../assets/visa.png";
 const Footer = () => {
   const icon = <IconAt style={{ width: rem(16), height: rem(16) }} />;
   return (
-    <div className="py-20 bg-black text-[#909090] ">
+    <div className="py-8 bg-black text-[#909090] ">
       <div className="max-w-screen-xl mx-auto flex justify-between ">
         {/* card section */}
         <div>
@@ -93,8 +85,8 @@ const Footer = () => {
             placeholder="Enter Your email"
             size="md"
           />
-          <Button variant="filled" color="rgba(20, 19, 19, 1)" fullWidth>
-            <span className="font-medium">subscribe</span>
+          <Button variant="filled" className="bg-gray-600 hover:scale-95 duration-500 ease-in-out "  fullWidth>
+            <span className="font-medium ">subscribe</span>
           </Button>
         </div>
       </div>

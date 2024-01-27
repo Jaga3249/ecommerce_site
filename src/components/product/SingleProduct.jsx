@@ -1,11 +1,9 @@
 import { Rating } from "@mantine/core";
-import React, { useState } from "react";
-import { useEffect } from "react";
-import ReactImageMagnify from "react-image-magnify";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { addToCart } from "../../redux/ProductSlice";
 import { toast } from "react-toastify";
+import { addToCart } from "../../redux/ProductSlice";
 
 const SingleProduct = () => {
   const [itemDetails, setItemDetails] = useState({});
