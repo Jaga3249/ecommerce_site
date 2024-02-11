@@ -53,7 +53,7 @@ const ProductCard = ({ product }) => {
 
      {/* top section */}
     <div
-      className="w-full h-96 overflow-hidden cursor-pointer"
+      className="w-full h-96 sm:px-0 px-4 overflow-hidden cursor-pointer "
       onClick={handleClick}
     >
       <img
@@ -63,7 +63,7 @@ const ProductCard = ({ product }) => {
       />
     </div>
     {/* bottom section */}
-    <div className="flex items-center justify-between ic py-2">
+    <div className="flex items-center justify-between  py-2 px-2 sm:px-0">
       <div>
         <h2 className="text-lg font-medium">
           
@@ -94,7 +94,7 @@ const ProductCard = ({ product }) => {
                   image: product.image,
                   price: product.price,
                 })
-              ) && toast.success(`${product.title} is added`)
+              ) && toast.success(`${product.title} is added`,)
             }
             className="cursor-pointer"
           >
@@ -107,12 +107,12 @@ const ProductCard = ({ product }) => {
         </p>
       </div>
     </div>
-    <div>
+    <div className="sm:px-0 px-2 mb-2">
       <p className="text-lg font-medium">{product.category}</p>
     </div>
     <div className="">
       {product.isNew && (
-        <p className=" bg-black  text-white text-center w-20 py-2 rounded-md absolute top-3 right-2 cursor-pointer ">
+        <p className=" bg-black  text-white text-center w-20 py-2 rounded-md absolute top-3 sm:right-2 right-6 cursor-pointer ">
           Sales
         </p>
       )}

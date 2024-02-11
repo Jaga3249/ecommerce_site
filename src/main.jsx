@@ -1,3 +1,4 @@
+import '@mantine/carousel/styles.css';
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import React from "react";
@@ -10,7 +11,7 @@ import "./index.css";
 import { persistor, store } from './redux/store';
 ReactDOM.createRoot(document.getElementById("root")).render(
   <MantineProvider>
-    <Provider store={store} app={app}>
+    <Provider store={store} app={app} >
     <PersistGate loading={"loading"} persistor={persistor}>
         <App />
       </PersistGate>

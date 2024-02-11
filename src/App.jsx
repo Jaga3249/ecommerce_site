@@ -14,9 +14,9 @@ import Home from "./components/pages/Home";
 import SingleProduct from "./components/product/SingleProduct";
 
 const Layout = () => (
-  <div>
-    <Header />
-    {/* <ScrollRestoration /> */}
+  <div className="" >
+    <Header  />
+  
     <Outlet />
     <Footer />
   </div>
@@ -52,8 +52,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <div className="font-bodyfont">
-        <RouterProvider router={router} />
+      <div className="font-bodyfont  ">
+        <RouterProvider  router={router} />
       </div>
       <ToastContainer
         position="top-right"

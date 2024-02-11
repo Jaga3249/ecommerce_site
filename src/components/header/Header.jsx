@@ -1,4 +1,4 @@
-import { IconBrandGoogle, IconShoppingCart } from "@tabler/icons-react";
+import { IconBaselineDensityMedium, IconBrandGoogle, IconShoppingCart } from "@tabler/icons-react";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -20,8 +20,8 @@ const Header = () => {
   const loginUser=useSelector((state)=>(state?.product?.user[0]?.name))
   const loginUserPhoto=useSelector((state)=>(state?.product?.user[0]?.photo))
   const loginUserEmail=useSelector((state)=>(state?.product?.user[0]?.email))
-  // useSelector((state)=>console.log(state))
-  console.log("productData", productData);
+
+
 
   const handleLogin = async () => {
     try {
@@ -60,8 +60,8 @@ const Header = () => {
       
     }
   }
-console.log("loginUser",loginUser)
-  console.log("user",user)
+
+  
 
   useEffect(()=>{
     setUser(loginUser)
@@ -69,31 +69,23 @@ console.log("loginUser",loginUser)
 
   return (
     <div
-      className="border-b-[1px] border-gray-400 
-     bg-white h-16 sticky top-0 z-20 "
+      className="border-b-[1px] sm:border-gray-400  border-2 border-red-500
+     bg-white h-16  sticky top-0 z-20    "
     >
-      <div className=" overflow-hidden px-14  h-full   flex items-center justify-between ">
-        <Link to="/" className="cursor-pointer">
+      <div className=" overflow-hidden sm:px-14  h-full sm:flex   items-center justify-between  hidden ">
+      <div className="flex items-center gap-10">
+      <Link to="/" className="cursor-pointer " >
           <img src={headerImg} alt="" className="w-32" />
         </Link>
-        <div className="flex gap-6 items-center    ">
-          <ul className="flex gap-8 items-center  ">
-            <li className="text-lg font-medium cursor-pointer hover:text-orange-500 hover:underline underline-offset-8">
+       
+            <span className="text-2xl font-medium cursor-pointer hover:text-orange-500 hover:underline underline-offset-8">
               Home
-            </li>
-            <li className="text-lg font-medium cursor-pointer hover:text-orange-500 hover:underline underline-offset-8">
-              Pages
-            </li>
-            <li className="text-lg font-medium cursor-pointer hover:text-orange-500 hover:underline underline-offset-8">
-              Shop
-            </li>
-            <li className="text-lg font-medium cursor-pointer hover:text-orange-500 hover:underline underline-offset-8">
-              Element
-            </li>
-            <li className="text-lg font-medium cursor-pointer hover:text-orange-500 hover:underline underline-offset-8">
-              Blog
-            </li>
-          </ul>
+            </span>
+      </div>
+           
+         
+        <div className="flex gap-6 items-center    ">
+         
 
           <div className="flex  items-center gap-6 cursor-pointer relative">
             <IconShoppingCart
@@ -149,6 +141,25 @@ console.log("loginUser",loginUser)
               )}
             </div>
           )}
+        </div>
+      </div>
+
+      {/* mobile Device */}
+      <div className="sm:hidden flex items-center justify-between h-full px-2">
+        {/* three bar */}
+       <div className="flex items-center">
+       <IconBaselineDensityMedium className=" w-10  cursor-pointer" size={28}/>
+       </div>
+
+        {/* cart */}
+        <div className="text-gray-600  flex relative">
+        <IconShoppingCart size={35} className="" onClick={()=>navigate("/cart")}/>
+        <span className="w-5 h-5 text-white   bg-red-500 flex justify-center items-center rounded-full absolute 
+        -top-2 -right-2"> {productData?.length}</span>
+        </div>
+        {/* userLogo */}
+        <div className="w-10">
+          <motion.img whileTap={{scale:0.63}} src={avatarImg} alt="" sizes="lg"  />
         </div>
       </div>
     </div>

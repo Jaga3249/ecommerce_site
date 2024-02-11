@@ -20,17 +20,17 @@ const SingleProduct = () => {
   useEffect(() => {
     setItemDetails(location.state.item);
   }, []);
-  // console.log("count", count);
+  
 
   return (
     <div className="w-screen ">
-      <div className="mx-auto max-w-screen-xl  my-10 flex gap-6">
+      <div className="sm:mx-auto sm:max-w-screen-xl  my-10 flex sm:flex-row flex-col gap-6">
         {/* left section */}
-        <div className="w-[400px]  h-[350px] relative  ">
+        <div className="sm:w-[400px]  sm:h-[350px] px-2 h-auto w-full relative  ">
           <img
             src={itemDetails.image}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full "
           />
 
           {itemDetails.isNew && (
@@ -42,7 +42,7 @@ const SingleProduct = () => {
 
         {/* right section */}
         <div className=" my-auto px-4">
-          <h1 className="text-4xl font-semibold">{itemDetails.title}</h1>
+          <h1 className="sm:text-4xl text-2xl font-semibold">{itemDetails.title}</h1>
 
           <div className="flex gap-2 my-2">
             <p className="line-through text-gray-400 text-lg">
@@ -60,11 +60,11 @@ const SingleProduct = () => {
             <span>(1 custumer review)</span>
           </div>
 
-          <p className="max-w-3xl leading-8 tracking-wide my-6">
+          <p className=" sm:max-w-3xl w-[95%] leading-8 tracking-wide my-6">
             {itemDetails.description}
           </p>
           <div className="flex gap-2 w-full cursor-pointer ">
-            <div className="flex items-center gap-4 py-2 px-3 border-[1px] border-gray-200 shadow-md">
+            <div className="flex items-center gap-4 py-2 sm:h-auto h-12  px-3 border-[1px] border-gray-200 shadow-md">
               <p>Quantity</p>
               <div className="flex gap-4 p-1">
                 <button
@@ -85,7 +85,7 @@ const SingleProduct = () => {
               </div>
             </div>
             <button
-              className="bg-black text-white px-2 py-3"
+              className="bg-black text-white px-2  sm:py-3 "
               onClick={() =>
                 dispatch(
                   addToCart({
