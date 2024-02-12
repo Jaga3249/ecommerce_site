@@ -1,7 +1,7 @@
 import { IconBaselineDensityMedium, IconBrandGoogle, IconShoppingCart } from "@tabler/icons-react";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -17,9 +17,9 @@ const Header = () => {
   
   const dispatch = useDispatch();
   const productData = useSelector((state) => state?.product?.productData);
-  const loginUser=useSelector((state)=>(state?.product?.user[0]?.name))
-  const loginUserPhoto=useSelector((state)=>(state?.product?.user[0]?.photo))
-  const loginUserEmail=useSelector((state)=>(state?.product?.user[0]?.email))
+  // const loginUser=useSelector((state)=>(state?.product?.user[0]?.name))
+  // const loginUserPhoto=useSelector((state)=>(state?.product?.user[0]?.photo))
+  // const loginUserEmail=useSelector((state)=>(state?.product?.user[0]?.email))
 
 
 
@@ -63,13 +63,13 @@ const Header = () => {
 
   
 
-  useEffect(()=>{
-    setUser(loginUser)
-  },[loginUser])
+  // useEffect(()=>{
+  //   setUser(loginUser)
+  // },[loginUser])
 
   return (
     <div
-      className="border-b-[1px] sm:border-gray-400  border-2 border-red-500
+      className="border-b-[1px] sm:border-gray-400  
      bg-white h-16  sticky top-0 z-20    "
     >
       <div className=" overflow-hidden sm:px-14  h-full sm:flex   items-center justify-between  hidden ">
@@ -95,7 +95,7 @@ const Header = () => {
             <div>
               <motion.img
                 whileTap={{ scale: 0.6 }}
-                src={loginUserPhoto ? loginUserPhoto : avatarImg}
+                src={ avatarImg}
                 alt=""
                 className="w-9 h-9 relative rounded-full"
                 onClick={() => setShow((prev) => !prev)}
@@ -134,15 +134,15 @@ const Header = () => {
                    <span> <IconBrandGoogle className="w-5"/></span>
                     Sign in with Google
                   </span>
-                  {/* <span className="text-sm hover:bg-gray-300 w-full text-center py-2 font-light">
-                    Sign in with Github
-                  </span> */}
+                  
                 </>
               )}
             </div>
           )}
         </div>
       </div>
+
+
 
       {/* mobile Device */}
       <div className="sm:hidden flex items-center justify-between h-full px-2">

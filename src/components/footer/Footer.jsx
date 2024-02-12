@@ -107,47 +107,47 @@ const Footer = () => {
         </div>
       </div>
       {/* mobile Menu */}
-      <div className="sm:hidden flex flex-col gap-2 bg-black py-10 w-auto " style={{border:"2px solid red"}}>
+      <div className="sm:hidden flex flex-col gap-2 bg-black py-6 w-auto px-4 mx-2 ">
         {/* company logo and its social media websites */}
         <div className="flex flex-col justify-center px-4">
-          <div className="bg-black h-16 cursor-pointer flex justify-center" >
+          <div className="bg-black w-full h-12 cursor-pointer flex justify-center" >
             <img src={headerImg} alt="" className="w-full h-full object-fill" />
           </div>
           {/* accept card */}
           <div className="flex items-center justify-between cursor-pointer px-2">
-            <img src={citi} alt="" className="w-12 h-10" />
-            <img src={visa} alt="" className="w-16 mt-2" />
-            <img src={paypal} alt="" className="w-16 mt-2" />
-            <img src={mastercard} alt="" className="w-16 mt-2" />
+            <img src={citi} alt="" className="w-8 h-10" />
+            <img src={visa} alt="" className="w-10 mt-2" />
+            <img src={paypal} alt="" className="w-14 mt-2" />
+            <img src={mastercard} alt="" className="w-10 mt-2" />
           </div>
           {/* social media */}
           <div className="cursor-pointer">
-            <div className="flex gap-3">
+            <div className="flex justify-between px-2">
               <a href="https://github.com/Jaga3249">
-                <IconBrandGithub className="cursor-pointer w-16 h-10 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100" />
+                <IconBrandGithub className="cursor-pointer w-8 h-8 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100" />
               </a>
               <a href="https://www.linkedin.com/in/jagannath-behera-09a979208/">
-                <IconBrandLinkedin className="cursor-pointer w-16 h-10 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100" />
+                <IconBrandLinkedin className="cursor-pointer w-8 h-8 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100" />
               </a>
 
-              <IconBrandFacebookFilled className="cursor-pointer w-16 h-10 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100"/>
+              <IconBrandFacebookFilled className="cursor-pointer w-8 h-8 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100"/>
               <a href="https://www.youtube.com/">
-                <IconBrandYoutube className="cursor-pointer w-16 h-10 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100" />
+                <IconBrandYoutube className="cursor-pointer w-8 h-8 bg-gray-500 hover:bg-gray-400 rounded-md hover:text-black hover:scale-100" />
               </a>
             </div>
           </div>
         </div>
         {/* company address */}
         <div className="flex flex-col items-center gap-2 cursor-pointer  ">
-            <h1 className="text-4xl text-gray-400 mx-auto">Locate us</h1>
-            <span className="text-gray-600 text-md">Nayapali,Bhubanesar</span>
-            <span className="text-gray-600 text-md">
+            <h1 className="text-xl text-gray-400 ">Locate us</h1>
+            <span className="text-gray-600 text-sm w-full text-center">Nayapali,Bhubanesar</span>
+            <span className="text-gray-600 text-sm w-full text-center">
               Mobile:<a href="tel:+918144360244">+918144360244</a>
             </span>
-            <span className="text-gray-600 text-md">
+            <span className="text-gray-600 text-sm w-full text-center">
               whatsApp:<a href="https://wa.me/8144360244">+918144360244</a>
             </span>
-            <span className="text-gray-600  text-md">
+            <span className="text-gray-600  text-sm ">
               Email:
               <a href="mailto:jagannathbehera0244@gmail.com">
                 jagannathbehera0244@gmail.com
@@ -156,23 +156,42 @@ const Footer = () => {
           </div>
        {/* profile section */}
        <div className="flex flex-col gap-2 cursor-pointer">
-            <h1 className="text-4xl text-gray-500 text-center">Profile</h1>
-            <div className="flex gap-1">
-              <IconUserSquareRounded className="w-5" />
-              <span>my acount</span>
+            <h1 className="text-xl text-gray-500 text-center">Profile</h1>
+            <div className="flex justify-center flex-wrap items-center gap-4 px-4 mb-2">
+            <div className="flex gap-1 justify-center">
+              <IconUserSquareRounded className="w-5 text-gray-300" />
+              <span className="text-gray-300 text-sm">my acount</span>
             </div>
-            <div className="flex gap-1">
-              <IconBrandPaypal className="w-5" />
-              <span>checkout</span>
+            <div className="flex gap-1 justify-center ">
+              <IconBrandPaypal className="w-5 text-gray-300" />
+              <span className="text-gray-300 text-sm">checkout</span>
             </div>
-            <div className="flex gap-1">
-              <IconHome className="w-5" />
-              <span>order tracking</span>
+            <div className="flex gap-1 justify-center  ">
+              <IconHome className="w-5 text-gray-300" />
+              <span className="text-gray-300 text-sm">order tracking</span>
             </div>
-            <div className="flex gap-1">
-              <IconMapPin className="w-5" />
-              <span>help & support</span>
+            <div className="flex gap-1 justify-center  ">
+              <IconMapPin className="w-5 text-gray-300" />
+              <span className="text-gray-300 text-sm">help & support</span>
             </div>
+            </div>
+          </div>
+
+           {/* subscription  scetion */}
+           <div className="flex flex-col gap-1 cursor-pointer px-4">
+            <TextInput
+              leftSectionPointerEvents="none"
+              leftSection={icon}
+              placeholder="Enter Your email"
+              size="md"
+            />
+            <Button
+              variant="filled"
+              className="bg-gray-600 hover:scale-95 duration-500 ease-in-out "
+              fullWidth
+            >
+              <span className="font-medium ">subscribe</span>
+            </Button>
           </div>
       </div>
       

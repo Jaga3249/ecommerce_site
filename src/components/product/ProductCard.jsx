@@ -51,9 +51,9 @@ const ProductCard = ({ product }) => {
     <div className="group relative">
 
 
-     {/* top section */}
+     {/* product image*/}
     <div
-      className="w-full h-96 sm:px-0 px-4 overflow-hidden cursor-pointer "
+      className="w-full h-96 sm:px-0 px-2 overflow-hidden cursor-pointer "
       onClick={handleClick}
     >
       <img
@@ -63,17 +63,17 @@ const ProductCard = ({ product }) => {
       />
     </div>
     {/* bottom section */}
-    <div className="flex items-center justify-between  py-2 px-2 sm:px-0">
-      <div>
-        <h2 className="text-lg font-medium">
+    <div className="flex items-center justify-between  pt-2 mx-2 sm:mx-0" >
+     
+        <h2 className="sm:text-lg text-base font-medium  ">
           
           {product.title.length > 15
             ? `${product.title.substring(0, 15)}...`
             : product.title}
         </h2>
-      </div>
-      <div className="flex items-center justify-between  gap-2 text-lg w-32 overflow-hidden  relative ">
-        <div className="flex gap-4 group-hover:translate-x-32  transition-transform duration-700 ">
+
+      <div className="flex items-center justify-between   text-lg w-32 overflow-hidden  relative ">
+        <div className="flex  justify-between items-center w-full sm:px-2 pl-6 group-hover:translate-x-32  transition-transform duration-700 " >
           <p className="line-through text-lg text-gray-400">
             ₹{product.oldPrice}
           </p>
@@ -107,9 +107,11 @@ const ProductCard = ({ product }) => {
         </p>
       </div>
     </div>
+
     <div className="sm:px-0 px-2 mb-2">
-      <p className="text-lg font-medium">{product.category}</p>
+      <p className="sm:text-lg text-md font-medium">{product.category}</p>
     </div>
+
     <div className="">
       {product.isNew && (
         <p className=" bg-black  text-white text-center w-20 py-2 rounded-md absolute top-3 sm:right-2 right-6 cursor-pointer ">

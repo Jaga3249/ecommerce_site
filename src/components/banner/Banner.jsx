@@ -15,7 +15,7 @@ const Banner = () => {
     setCurrentSlide(currentSlide === 0 ? 3 : (prev) => prev - 1);
   };
   const autoplay = useRef(Autoplay({ delay: 2000 }));
-  console.log("autoPlay",autoplay)
+ 
 
   return (
     <div className="   overflow-x-hidden  lg:block  ">

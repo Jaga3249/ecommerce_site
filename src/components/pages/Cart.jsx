@@ -223,7 +223,7 @@ const Cart = () => {
         </div>
         <div className="w-full  flex flex-col justify-center items-center ">
         <button
-            className="bg-black px-10   py-2 text-white hover:scale-95 duration-500 ease-in-out"
+            className="bg-black px-10 mb-2   py-2 text-white hover:scale-95 duration-500 ease-in-out"
             onClick={handleCheckout}
           >
             proceed to checkout
